@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // import Error from '../Error'
 import Header from "../Header"
-// import Footer from "../Footer"
+import Footer from "../Footer"
 
 
 function KasaRouter(){
@@ -23,7 +23,7 @@ function KasaRouter(){
             <Route path="/lodgings" element={<Lodgings/>} />
             <Route path="/about" element={<About/>}/>
         </Routes> */}
-        {/* <Footer/> */}
+        <Footer/>
     </Router>)
 }
 
