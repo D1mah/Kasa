@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Import des pages
-// import Home from '../../pages/Home'
+import Home from '../../pages/Home'
 // import Lodgings from '../../pages/Lodgings'
 // import About from '../../pages/About'
 
@@ -17,12 +17,12 @@ function KasaRouter(){
     return(
     <Router>
         <Header/>
-        {/* <Routes>
+        <Routes>
             <Route path="/" element={<Home />} />
-            <Route path='*' element={<Error/>} />
+            {/* <Route path='*' element={<Error/>} />
             <Route path="/lodgings" element={<Lodgings/>} />
-            <Route path="/about" element={<About/>}/>
-        </Routes> */}
+            <Route path="/about" element={<About/>}/> */}
+        </Routes>
         <Footer/>
     </Router>)
 }

@@ -25,7 +25,7 @@ export const Loader = styled.div`
 export const StyledLink = styled(Link)`
   color: ${colors.primary};
   text-transform:uppercase;
-  padding: 10px 0 10px 15px;
+  padding: 10px 15px;
   text-decoration: none;
   font-size:12px;
   line-height:17px;
@@ -36,7 +36,7 @@ export const StyledLink = styled(Link)`
 
   @media (min-width: 768px){
     text-transform:capitalize;
-    padding: 10px 15px;
+    padding: 10px 0 10px 15px;
     font-weight:500;
     font-size: 24px;
     text-align: center;

@@ -7,7 +7,8 @@ const StyledGlobalStyle = createGlobalStyle`
     }
  
     body {
-        margin: 0;  
+        max-width: 1240px;
+        margin:auto;  
     }
 `
 
