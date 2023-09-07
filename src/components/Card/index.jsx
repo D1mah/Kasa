@@ -40,7 +40,7 @@ const CardWrapper = styled.div`
         cursor: pointer;
         transform: scale(1.05);
     }
-    @media (min-width:880px) {
+    @media (min-width:830px) {
         width:100%;
         height:100%; 
     }

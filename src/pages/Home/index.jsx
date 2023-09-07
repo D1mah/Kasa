@@ -37,12 +37,16 @@ const HomeHeader= styled.div `
     display:flex;
     align-items:center;
         @media (min-width: 740px){
-            height:220px;
             background-size:cover;
-            background-position:right 55% bottom 50%;
+            background-position:right 55% bottom 48%;
             justify-content:center;
             border-radius:25px;
             
+        }
+        @media (min-width:780px){
+            height:220px;
+            background-position:right 55% bottom 50%;
+
         }
 `
 
@@ -71,7 +75,7 @@ justify-content:flex-end;
 align-items:center;
 margin: 30px 20px;
 
-    @media (min-width:880px){
+    @media (min-width:830px){
         padding: 45px 30px 20px 30px;
         // padding-bottom:20px;
         border-radius:25px;
