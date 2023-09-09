@@ -29,7 +29,7 @@ const HomeHeader= styled.div `
     height:111px;
     margin:20px;
     border-radius:10px;
-    border: 1px solid #000;
+    // border: 1px solid #000;
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${img});
     background-blend-mode:darken;
     background-size: 700px  ;
