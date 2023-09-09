@@ -1,13 +1,14 @@
-import styled  from 'styled-components'
+import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 import { useState } from 'react'
 
 // Get our fontawesome imports
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import {faChevronUp} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-// const chevronIcon=
+
 
 const CollapseTitle=styled.h2`
     font-size:13px;
@@ -19,7 +20,8 @@ const CollapseTitle=styled.h2`
 `
 
 const CollapseFormat=styled.div`
-    max-width:1023px;
+width:100%;    
+max-width:1023px;
     padding:0 20px 0 20px ;
     display:flex;
     flex-direction:column;
@@ -28,7 +30,8 @@ const CollapseFormat=styled.div`
 `
 
 const CollapseHeader= styled.button`
-width:100%;   
+width:100%;
+max-width:1023px;
 z-index:1; 
 border:none;
     
@@ -43,6 +46,14 @@ border:none;
     padding-right:15px;
     margin-bottom:20px ;
     cursor:pointer;
+    
+    .reverse{
+        transition: transform 0.1s ease-in-out;
+        &:hover{
+            transform:rotate(180deg);
+            }
+        }
+    }
 `
 const CollapseContent=styled.p`
 // position:relative;   
@@ -72,7 +83,7 @@ function Collapse(props){
         <CollapseFormat>
             <CollapseHeader onClick={showHide}>
                 <CollapseTitle> {props.label}</CollapseTitle>
-                <FontAwesomeIcon icon={faChevronDown}/>
+                {open ? <FontAwesomeIcon className="reverse" icon={faChevronUp}/>:<FontAwesomeIcon className="reverse" icon={faChevronDown}/> }   
             </CollapseHeader>
             {open && (
                 <div className="showHide">

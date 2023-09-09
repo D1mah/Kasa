@@ -15,9 +15,10 @@ const AboutImage=styled.img`
     filter:brightness(.75);
 `
 
-const CollapseMain=styled.div`
-    display:flex;
+const CollapseMain=styled.div`   
+display:flex;
     flex-direction:column;
+    align-items:center;
     .padding{
     padding: 35px 20px 40px 15px;
     @media (min-width:768px){
