@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import colors from './colors'
 import styled, { keyframes } from 'styled-components'
 
@@ -22,25 +22,25 @@ export const Loader = styled.div`
   width: 0;
 `
 
-export const StyledLink = styled(Link)`
-  color: ${colors.primary};
-  text-transform:uppercase;
-  padding: 10px 15px;
-  text-decoration: none;
-  font-size:12px;
-  line-height:17px;
+// export const StyledLink = styled(Link)`
+//   color: ${colors.primary};
+//   text-transform:uppercase;
+//   padding: 10px 15px;
+//   text-decoration: none;
+//   font-size:12px;
+//   line-height:17px;
   
-  &:hover{
-        text-decoration: underline ${colors.primary};
-  }
+//   &:hover{
+//         text-decoration: underline ${colors.primary};
+//   }
 
-  @media (min-width: 768px){
-    text-transform:capitalize;
-    padding: 10px 0 10px 15px;
-    font-weight:500;
-    font-size: 24px;
-    text-align: center;
+//   @media (min-width: 768px){
+//     text-transform:capitalize;
+//     padding: 10px 0 10px 15px;
+//     font-weight:500;
+//     font-size: 24px;
+//     text-align: center;
     
-  }
+//   }
 
-`
+// `

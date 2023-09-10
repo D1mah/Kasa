@@ -19,6 +19,8 @@ const CollapseMain=styled.div`
 display:flex;
     flex-direction:column;
     align-items:center;
+    margin-left:20px;
+    margin-right:20px;
     .padding{
     padding: 35px 20px 40px 15px;
     @media (min-width:768px){

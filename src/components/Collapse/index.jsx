@@ -27,6 +27,7 @@ max-width:1023px;
     flex-direction:column;
     align-items:center;
     position:relative;
+    // margin:0 20px 0 20px;
 `
 
 const CollapseHeader= styled.button`
@@ -46,18 +47,11 @@ border:none;
     padding-right:15px;
     margin-bottom:20px ;
     cursor:pointer;
-    
-    .reverse{
-        transition: transform 0.1s ease-in-out;
-        &:hover{
-            transform:rotate(180deg);
-            }
-        }
     }
 `
-const CollapseContent=styled.p`
+const CollapseContent=styled.div`
 // position:relative;   
-width:100%;
+// width:100%;
     margin-top:-55px;
     margin-bottom:20px;
     background-color:${colors.secondary};
