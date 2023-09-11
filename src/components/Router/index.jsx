@@ -29,7 +29,7 @@ function KasaRouter(){
         <Routes>
             <Route element={<PageLayout/>}>
                 <Route path="/" element={<Home />} />
-                <Route path="/lodge" element={<Lodge/>} />
+                <Route path="/lodge/:id" element={<Lodge/>} />
                 <Route path="/about" element={<About/>}/>
             </Route>
             <Route path='*' element={<Error/>} />

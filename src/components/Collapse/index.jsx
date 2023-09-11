@@ -51,7 +51,8 @@ border:none;
 `
 const CollapseContent=styled.div`
 // position:relative;   
-// width:100%;
+    width:100%;
+    max-width:1023px;
     margin-top:-55px;
     margin-bottom:20px;
     background-color:${colors.secondary};
@@ -60,6 +61,7 @@ const CollapseContent=styled.div`
     font-size:12px;
     font-weight:400;
     line-height:17px;
+    
     @media (min-width:768px){
         font-size:24px;
         line-height:34px;
@@ -67,6 +69,7 @@ const CollapseContent=styled.div`
     
     
 `
+
 
 function Collapse(props){
     const [open, setOpen]=useState(false);
@@ -80,10 +83,9 @@ function Collapse(props){
                 {open ? <FontAwesomeIcon className="reverse" icon={faChevronUp}/>:<FontAwesomeIcon className="reverse" icon={faChevronDown}/> }   
             </CollapseHeader>
             {open && (
-                <div className="showHide">
-                    {/* <h3>Du contenu</h3> */}
-                    <CollapseContent>{props.children}</CollapseContent>
-                </div> 
+                <CollapseContent className="showHide">
+                    {props.children}</CollapseContent>
+               
             )}
         </CollapseFormat>
     )
