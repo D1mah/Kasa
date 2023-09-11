@@ -2,28 +2,11 @@ import styled from 'styled-components'
 import img from '../../assets/IMG.png'
 import Card from '../../components/Card'
 import colors from '../../utils/style/colors'
+import lodgings from '../../datas/lodgings.json'
+import { Link } from 'react-router-dom'
 
-import DefaultPicture from '../../assets/profile.png'
+// import DefaultPicture from '../../assets/profile.png'
 
-
-const lodgeProfiles = [
-    {
-        title: 'Appartement cosy',
-        picture: DefaultPicture,
-    },
-    {
-        title: 'Magnifique appartement proche Canal Saint-Martin',
-        picture: DefaultPicture,
-    },
-    {
-        title: 'Studio de charme - Buttes Chaumont',
-        picture: DefaultPicture,
-    },
-    {
-        title: 'Fais-moi une nouvelle ligne stp',
-        picture: DefaultPicture,
-    },
-]
 
 const HomeHeader= styled.div `
     height:111px;
@@ -74,6 +57,7 @@ flex-direction:column;
 justify-content:flex-end;
 align-items:center;
 margin: 30px 20px;
+row-gap:30px;
 
     @media (min-width:830px){
         padding: 45px 30px 20px 30px;
@@ -83,7 +67,6 @@ margin: 30px 20px;
         grid-template-columns: repeat(auto-fill, 280px);
         grid-auto-flow: row;
         grid-auto-rows: 255px;
-        row-gap: 30px;
         column-gap:100px;
         justify-content:center;
         background-color:${colors.secondary}
@@ -101,6 +84,19 @@ margin: 30px 20px;
     }
 `
 
+const CardLink=styled(Link)`
+border-radius: 10px;
+width: 335px;
+height: 255px;
+text-decoration:none;
+
+  @media (min-width:830px) {
+      width:100%;
+      height:100%; 
+  }
+`
+
+
 function Home() {
     return (
         <div>
@@ -108,12 +104,14 @@ function Home() {
             <HomeHeaderText>Chez vous, partout et ailleurs</HomeHeaderText>
         </HomeHeader>
         <CardsContainer>
-        {lodgeProfiles.map((lodge, index) => (
+        {lodgings.map((lodge) => (
+            
+            <CardLink key={`${lodge.id}`} to={`/lodge/${lodge.id}`}>
               <Card
-                  key={`${lodge.title}-${index}`}
-                  picture={lodge.picture}
+                  picture={lodge.cover}
                   title={lodge.title}
               />
+            </CardLink>
             ))}
         </CardsContainer>
     </div>
