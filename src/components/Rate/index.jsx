@@ -31,12 +31,12 @@ function Rate(props){
     const rate=props.rate
     return (
         <RateContent>
-        {options.map((note)=> note<=rate ?(
-            <FontAwesomeIcon className="fullStar" icon={faStar}/>
-        ):(<FontAwesomeIcon className="emptyStar" icon={faStar} />
-        ))
-        
-        }
+        {options.map((note, i)=> {
+            if (note<=rate) {
+                return (<FontAwesomeIcon key={i} className="fullStar" icon={faStar}/>)
+            }
+            return (<FontAwesomeIcon key={i} className="emptyStar" icon={faStar} />)
+        })}
         </RateContent>
     )
 }

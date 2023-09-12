@@ -1,21 +1,23 @@
 import { styled } from "styled-components"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import colors from '../../utils/style/colors'
 import lodgings from '../../datas/lodgings.json'
 import Collapse from "../../components/Collapse"
 import Tag from "../../components/Tag"
 import Rate from "../../components/Rate"
 import { useState, useEffect } from "react"
-// import Slideshow from "../../components/SlidesHow"
+import Slideshow from "../../components/Slideshow"
 
 const LodgeImg=styled.div`
 max-width:1240px;
 margin: 25px 20px 0 20px;
 height:255px;
 border-radius:10px;
-background-color:${colors.secondary}
+background-color:${colors.secondary};
 @media (min-width:768px){
     height:415px;
+    border-radius:25px;
+
 }
 `
 
@@ -167,60 +169,66 @@ const EquipementList=styled.ul`
 
 function Lodge(){
     const currentLodgeId=useParams()
-        // console.log(currentLodgeId)
     const[lodge,setLodge]=useState({})
+    const errorNav=useNavigate()
     
     useEffect(()=> {
     const lodge=lodgings.find((elem)=> elem.id===currentLodgeId.id)
         setLodge(lodge)
     }, [currentLodgeId])
-        // console.log(lodge)
-    return (
-        <>
-            <LodgeImg>
-                {/* <Slideshow></Slideshow> */}
-            </LodgeImg>
-
-            <LodgeHeader>
-
-                <LodgeHeaderLeft>
-                    <LodgeTitle>{lodge.title} </LodgeTitle>
-                    <LodgeLocation>{lodge.location}</LodgeLocation>
-                    <TagContainer>
-                        {lodge.tags?.map((tag, i)=>(
-                            <Tag key={i} item={tag} />
-                        ))}
-                    </TagContainer>
-                </LodgeHeaderLeft>
-
-                <LodgeHeaderRight>
-                    <RateContainer>
-                        <Rate rate={lodge.rating}></Rate>
-                    </RateContainer>
-                    <HostContainer>
-                        <HostName>{lodge.host?.name}</HostName>
-                        <HostPicture src={lodge.host?.picture} alt='Photo du propriétaire'></HostPicture>
-                    </HostContainer>
-                </LodgeHeaderRight>
+    
+    
+        return (
+            <>
+            {lodge ? ( 
+                <>
+                    <LodgeImg>
+                            <Slideshow pictures={lodge?.pictures} ></Slideshow>
+                        </LodgeImg>
             
-            </LodgeHeader>
+                        <LodgeHeader>
             
-            <DescriptionContainer>
-                <Collapse label='Description'>
-                    <p className="padding description_font-size ">{lodge.description}</p>
-                </Collapse>
-                <Collapse label='Equipements'>
-                    <EquipementList className='description_font-size'>
-                        {lodge.equipments?.map((item, i)=>(
-                            <li key={i}>{item}</li>                       
-                        ))}
-                    </EquipementList>
-                </Collapse>
-            </DescriptionContainer>
-
-        </>
-    )
-
+                            <LodgeHeaderLeft>
+                                <LodgeTitle>{lodge.title} </LodgeTitle>
+                                <LodgeLocation>{lodge.location}</LodgeLocation>
+                                <TagContainer>
+                                    {lodge.tags?.map((tag, i)=>(
+                                        <Tag key={i} item={tag} />
+                                    ))}
+                                </TagContainer>
+                            </LodgeHeaderLeft>
+            
+                            <LodgeHeaderRight>
+                                <RateContainer>
+                                    <Rate rate={lodge.rating}></Rate>
+                                </RateContainer>
+                                <HostContainer>
+                                    <HostName>{lodge.host?.name}</HostName>
+                                    <HostPicture src={lodge.host?.picture} alt='Photo du propriétaire'></HostPicture>
+                                </HostContainer>
+                            </LodgeHeaderRight>
+                        
+                        </LodgeHeader>
+                        
+                        <DescriptionContainer>
+                            <Collapse label='Description'>
+                                <p className="padding description_font-size ">{lodge.description}</p>
+                            </Collapse>
+                            <Collapse label='Equipements'>
+                                <EquipementList className='description_font-size'>
+                                    {lodge.equipments?.map((item, i)=>(
+                                        <li key={i}>{item}</li>                       
+                                    ))}
+                                </EquipementList>
+                            </Collapse>
+                        </DescriptionContainer>
+                    </> 
+                ): ( errorNav("/404"))
+                }        
+                
+    
+            </>
+        )
 
 }
 
