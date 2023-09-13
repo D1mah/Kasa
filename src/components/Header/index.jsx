@@ -88,8 +88,9 @@ function Header() {
         setAboutLocation(null)
         break
       default:
-        console.log("on devrait normalement pas en arriver là")
-    }
+        setHomeLocation(null)
+        setAboutLocation(null)    
+      }
   },[page.pathname, aboutLocation, homeLocation])
 
   return (<HeaderNavContainer>
