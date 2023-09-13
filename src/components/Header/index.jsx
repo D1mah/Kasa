@@ -74,7 +74,7 @@ function Header() {
   const [homeLocation,setHomeLocation]=useState("")
   const [aboutLocation,setAboutLocation]=useState("")
 
-  // Système pour le soulignement des options nav du header selon la page render
+  // Text-decoration system for nav options in header according to the page rendered
    const page=useLocation()
 
    useEffect(()=>{  
