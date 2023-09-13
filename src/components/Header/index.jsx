@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react'
 import Logo from '../../assets/LOGO.png'
 import colors from '../../utils/style/colors'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 // import { StyledLink } from '../../utils/style/Bounds'
 
@@ -13,7 +14,7 @@ const StyledLink = styled(Link)`
   line-height:17px;
   
   &:hover{
-        text-decoration: underline ${colors.primary};
+      transform:scale(1.1);
   }
 
   @media (min-width: 768px){
@@ -52,19 +53,52 @@ align-Items: center;
           justify-content:space-between;
         }
     }
-
+    .homeSelected{
+      text-decoration: underline 1px ${colors.primary};
+      &:hover {
+        transform:scale(1);
+      }
+    }
+    .aboutSelected{
+      text-decoration: underline 1px ${colors.primary};
+      &:hover {
+        transform:scale(1);
+      }
+    }
+    
 
 
 `
 
 function Header() {
-    return (<HeaderNavContainer>
+  const [homeLocation,setHomeLocation]=useState("")
+  const [aboutLocation,setAboutLocation]=useState("")
+
+  // Système pour le soulignement des options nav du header selon la page render
+   const page=useLocation()
+
+   useEffect(()=>{  
+    switch (page.pathname){
+      case "/about":
+        setAboutLocation("aboutSelected")
+        setHomeLocation(null)
+        break
+      case "/":
+        setHomeLocation("homeSelected")
+        setAboutLocation(null)
+        break
+      default:
+        console.log("on devrait normalement pas en arriver là")
+    }
+  },[page.pathname, aboutLocation, homeLocation])
+
+  return (<HeaderNavContainer>
         <Link to='/'>
           <StyledLogo src={Logo} alt='logo Kasa'></StyledLogo>
         </Link>
         <div className="space">
-          <StyledLink to="/">Accueil</StyledLink>
-          <StyledLink to="/about">A Propos</StyledLink>
+          <StyledLink className={homeLocation} to="/">Accueil</StyledLink>
+          <StyledLink className={aboutLocation} to="/about">A Propos</StyledLink>
           
         </div>
       </HeaderNavContainer>
