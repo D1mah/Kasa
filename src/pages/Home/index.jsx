@@ -59,17 +59,25 @@ align-items:center;
 margin: 30px 20px;
 row-gap:30px;
 
-    @media (min-width:830px){
-        padding: 45px 30px 20px 30px;
+    @media (min-width:690px) {
+         padding: 45px 30px 20px 30px;
         // padding-bottom:20px;
         border-radius:25px;
         display:grid;
         grid-template-columns: repeat(auto-fill, 280px);
         grid-auto-flow: row;
         grid-auto-rows: 255px;
-        column-gap:100px;
+        column-gap:30px;
         justify-content:center;
         background-color:${colors.secondary}
+    }
+
+    @media (min-width: 735px){
+        column-gap:50px;
+    }
+    
+    @media (min-width:800px){
+        column-gap:100px;
     }
 
     @media (min-width:1020px){
@@ -90,7 +98,12 @@ width: 335px;
 height: 255px;
 text-decoration:none;
 
-  @media (min-width:830px) {
+    @media (min-width:690px) {
+        width:100%;
+        height:100%
+    }
+
+  @media (min-width:800px) {
       width:100%;
       height:100%; 
   }
