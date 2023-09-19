@@ -80,12 +80,11 @@ function Collapse(props){
         <CollapseFormat>
             <CollapseHeader onClick={showHide}>
                 <CollapseTitle> {props.label}</CollapseTitle>
-                {open ? <FontAwesomeIcon className="reverse" icon={faChevronUp}/>:<FontAwesomeIcon className="reverse" icon={faChevronDown}/> }   
+                {open ? <FontAwesomeIcon icon={faChevronUp}/>:<FontAwesomeIcon icon={faChevronDown}/> }   
             </CollapseHeader>
             {open && (
                 <CollapseContent className="showHide">
                     {props.children}</CollapseContent>
-               
             )}
         </CollapseFormat>
     )

@@ -18,6 +18,7 @@ align-items:center;
 }
 .emptyStar{
     color:#E3E3E3;
+    padding-right:5px;
 }
 
 @media (min-width:768px){

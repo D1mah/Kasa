@@ -21,7 +21,7 @@ function PageLayout() {
     </div>
 )
 }
-
+// Router function
 function KasaRouter(){
     return(
     <Router>
@@ -33,7 +33,7 @@ function KasaRouter(){
                 <Route path="/about" element={<About/>}/>
             </Route>
             <Route path='*' element={<Error/>} />
-            <Route path='/lodge/*' element={<Error/>} /> 
+            {/* <Route path='/lodge/*' element={<Error/>} />  */}
         </Routes>
     </Router>)
 }
