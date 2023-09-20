@@ -108,11 +108,7 @@ function Slideshow({pictures}){
                     return (
                         <SlideshowImgContainer key={index}>
                             {(index===currentImg) && (<SlideshowImg src={picture} alt="propriété"/>)}
-                            {(index === currentImg) && (
-                                <ImgNumber>
-                                    {currentImg +1} / {picturesLength}
-                                </ImgNumber>
-                            )}
+                            {(index === currentImg) && (<ImgNumber>{currentImg +1} / {picturesLength}</ImgNumber>)}
                         </SlideshowImgContainer>
                         )
                     })}        
